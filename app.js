@@ -6,6 +6,8 @@ const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const path = require("path");
+
 
 //My routes
 const authRoutes = require("./routes/auth");
@@ -46,6 +48,21 @@ app.use("/api", flavorRoutes);
 app.use("/api", productRoutes);
 app.use("/api", orderRoutes);
 app.use("/api", paymentRRoutes);
+
+
+var __dirname = path.resolve();
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/projfrontend/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "projfrontend", "build", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running....");
+  });
+}
 
 //PORT
 const port = process.env.PORT || 8000;
