@@ -1,0 +1,46 @@
+{
+    "entity": "event",
+    "account_id": "acc_HQ125pp6vLfEp5",
+    "event": "payment.captured",
+    "contains": [
+        "payment"
+    ],
+    "payload": {
+        "payment": {
+            "entity": {
+                "id": "pay_HSPrHTOU3L6bpW",
+                "entity": "payment",
+                "amount": 777,
+                "currency": "INR",
+                "status": "captured",
+                "order_id": "order_HSPrE0QLPsWhk5",
+                "invoice_id": null,
+                "international": false,
+                "method": "netbanking",
+                "amount_refunded": 0,
+                "refund_status": null,
+                "captured": true,
+                "description": "Thank you for nothing. Please give us some money",
+                "card_id": null,
+                "bank": "SBIN",
+                "wallet": null,
+                "vpa": null,
+                "email": "manavkothari777@gmail.com",
+                "contact": "+917000272091",
+                "notes": [],
+                "fee": 18,
+                "tax": 2,
+                "error_code": null,
+                "error_description": null,
+                "error_source": null,
+                "error_step": null,
+                "error_reason": null,
+                "acquirer_data": {
+                    "bank_transaction_id": "1440621"
+                },
+                "created_at": 1624869461
+            }
+        }
+    },
+    "created_at": 1624869464
+}
