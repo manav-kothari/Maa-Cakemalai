@@ -71,7 +71,7 @@ const Paymentr = ({ products, setReload = (f) => f, reload = undefined }) => {
     console.log(data);
 
     const options = {
-      key: __DEV__ ? "rzp_test_TtHiyQQU1R6qnb" : "PRODUCTION_KEY",
+      key:  "rzp_test_TtHiyQQU1R6qnb",
       currency: "INR",
       amount: data.amount.toString(),
       order_id: data.id,
