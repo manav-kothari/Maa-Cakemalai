@@ -23,7 +23,7 @@ const Product = ({ match }) => {
     });
   };
 
-  useEffect((productId) => {
+  useEffect(() => {
     setLoading(true);
     loadProduct(productId);
   }, []);
