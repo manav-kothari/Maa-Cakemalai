@@ -43,7 +43,7 @@ const Cart = () => {
               </h4>
               <a href="/store">
                 {" "}
-                <button className="btn-danger btn">Start Shopping</button>
+                <button className="btn-danger btn">Start Shopping!</button>
               </a>
             </>
           )}
