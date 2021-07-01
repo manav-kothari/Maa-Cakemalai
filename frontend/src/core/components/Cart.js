@@ -29,13 +29,6 @@ const Cart = () => {
       </div>
     );
   };
-  // const loadCheckout = () => {
-  //   return (
-  //     <div>
-  //       <h2>My Cart</h2>
-  //     </div>
-  //   );
-  // };
 
   return (
     <Container style={{ backgroundColor: "#f8f8f8" }}>
@@ -44,9 +37,15 @@ const Cart = () => {
           {products.length > 0 ? (
             loadAllProducts(products)
           ) : (
-            <h4 className="my-2 mt-3 p-2">
-              <strong>No products here yet...</strong>
-            </h4>
+            <>
+              <h4 className="my-2 mt-3 p-2">
+                <strong>No products here yet...</strong>
+              </h4>
+              <a href="/store">
+                {" "}
+                <button className="btn-danger btn">Start Shopping</button>
+              </a>
+            </>
           )}
         </Col>
         <Col sm={12} md={6} lg={6} xl={7}>

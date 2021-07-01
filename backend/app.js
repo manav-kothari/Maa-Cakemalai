@@ -8,7 +8,6 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const path = require("path");
 
-
 //My routes
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
@@ -49,14 +48,13 @@ app.use("/api", productRoutes);
 app.use("/api", orderRoutes);
 app.use("/api", paymentRRoutes);
 
-
 var __dirname = path.resolve();
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/projfrontend/build")));
+  app.use(express.static(path.join(__dirname, "/frontend/build")));
 
   app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "projfrontend", "build", "index.html"))
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
   );
 } else {
   app.get("/", (req, res) => {

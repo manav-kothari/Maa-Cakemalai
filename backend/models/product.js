@@ -33,6 +33,7 @@ const productSchema = new mongoose.Schema(
     },
 
     flavor: { type: String },
+    cakeCategory: { type: String },
     photo: {
       data: Buffer,
       contentType: String,

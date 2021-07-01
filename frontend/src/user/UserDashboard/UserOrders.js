@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { isAuthenticated } from "../../auth/helper";
 import { Table, Pagination } from "react-bootstrap";
-import { getAllOrders } from "../../admin/helper/adminapicall";
 import { LinkContainer } from "react-router-bootstrap";
 import { HiArrowCircleRight, HiArrowCircleLeft } from "react-icons/hi";
+import { getMyOrders } from "../helper/userapicalls";
 
-const AllOrders = ({ match }) => {
+const UserOrders = ({ match }) => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -18,11 +18,11 @@ const AllOrders = ({ match }) => {
   const { user, token } = isAuthenticated();
 
   const preload = (pageNumber) => {
-    getAllOrders(user._id, token, pageNumber).then((data) => {
+    getMyOrders(user._id, token, pageNumber).then((data) => {
       if (data.error) {
         setError(data.error);
       } else {
-        setOrders(data.order);
+        setOrders(data.orders);
         console.log(data);
 
         setPage(data.page);
@@ -35,6 +35,7 @@ const AllOrders = ({ match }) => {
   useEffect(() => {
     setLoading(true);
     preload(pageNumber);
+    // eslint-disable-next-line
   }, [pageNumber]);
 
   const loadingMessage = () => {
@@ -68,7 +69,7 @@ const AllOrders = ({ match }) => {
             </Link>
             <div className="container">
               <h3 className="text-dark text-center p-2 headingalt">
-                All Orders :
+                My Orders :
               </h3>
             </div>
             <Table
@@ -81,22 +82,19 @@ const AllOrders = ({ match }) => {
             >
               <thead className="">
                 <tr className="text-center">
-                  <th>Cuomer's Name</th>
-                  <th>Amount</th>
                   <th>Product(s)</th>
+                  <th>Amount</th>
                   <th>Instruction</th>
                   <th>Branch</th>
                   <th>Timestamp</th>
                   <th>Order ID</th>
                   <th>Transaction ID</th>
-                  <th>Cutomer's ID</th>
                 </tr>
               </thead>
 
               <tbody className="text-center text-dark">
                 {orders.map((order) => (
                   <tr key={order._id}>
-                    <td>{order.user.name}</td> <td>₹{order.amount / 100}</td>
                     <td>
                       {order.products.map((product, index) => {
                         return (
@@ -109,6 +107,7 @@ const AllOrders = ({ match }) => {
                         );
                       })}
                     </td>
+                    <td>₹{order.amount / 100}</td>
                     <td>{order.instruction}</td>
                     <td>{order.branch}</td>
                     <td>{order.createdAt}</td>
@@ -124,7 +123,7 @@ const AllOrders = ({ match }) => {
             <div className="center ">
               <Pagination className="my-4 font-weight-bold " pagination>
                 <div className="">
-                  <LinkContainer to={`/admin/allorders/page/${page - 1}`}>
+                  <LinkContainer to={`/myprofile/orders/page/${page - 1}`}>
                     <Pagination.Item
                       disabled={page === 1}
                       className=" text-capitalize font-weight-bold "
@@ -139,7 +138,7 @@ const AllOrders = ({ match }) => {
                   </strong>
                 </h3>
                 <div className="">
-                  <LinkContainer to={`/admin/allorders/page/${page + 1}`}>
+                  <LinkContainer to={`/myprofile/orders/page/${page + 1}`}>
                     <Pagination.Item
                       disabled={page === pages}
                       className=" text-capitalize font-weight-bold "
@@ -157,4 +156,4 @@ const AllOrders = ({ match }) => {
   );
 };
 
-export default AllOrders;
+export default UserOrders;

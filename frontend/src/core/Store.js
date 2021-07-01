@@ -22,6 +22,7 @@ export default function Store({ match }) {
 
   const preloadCategories = () => {
     getCategories().then((data) => {
+      console.log(data);
       if (data.error) {
         setCategories(data.error);
       } else {

@@ -19,8 +19,6 @@ function loadScript(src) {
   });
 }
 
-const __DEV__ = document.domain === "localhost";
-
 const Paymentr = ({ products, setReload = (f) => f, reload = undefined }) => {
   const userId = isAuthenticated() && isAuthenticated().user._id;
   const token = isAuthenticated() && isAuthenticated().token;
@@ -71,7 +69,7 @@ const Paymentr = ({ products, setReload = (f) => f, reload = undefined }) => {
     console.log(data);
 
     const options = {
-      key:  "rzp_test_TtHiyQQU1R6qnb",
+      key: "rzp_test_TtHiyQQU1R6qnb",
       currency: "INR",
       amount: data.amount.toString(),
       order_id: data.id,

@@ -206,6 +206,22 @@ const UpdateProduct = ({ match }) => {
         </select>
       </div>
 
+      <div className="form-group my-2">
+        <select
+          onChange={handleChange("cakeCategory")}
+          className="form-control"
+          placeholder="Cake Category"
+        >
+          <option>Select Cake Category</option>
+
+          <option>Anniversary</option>
+          <option>Birthday</option>
+          <option>Kids</option>
+          <option>Photo</option>
+          <option>Theme</option>
+        </select>
+      </div>
+
       <button
         type="submit"
         onClick={onSubmit}

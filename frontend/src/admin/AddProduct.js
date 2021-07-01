@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import {
-  getCategories,
-  // getFlavors,
-  createaProduct,
-} from "./helper/adminapicall";
+import { getCategories, createaProduct } from "./helper/adminapicall";
 import { isAuthenticated } from "../auth/helper/index";
 
 const AddProduct = () => {
@@ -46,14 +42,6 @@ const AddProduct = () => {
         setValues({ ...values, categories: data, formData: new FormData() });
       }
     });
-    // getFlavors().then((data) => {
-    //   //console.log(data);
-    //   if (data.error) {
-    //     setValues({ ...values, error: data.error });
-    //   } else {
-    //     setValues({ ...values, flavors: data, formData: new FormData() });
-    //   }
-    // });
   };
 
   useEffect(() => {
@@ -187,6 +175,22 @@ const AddProduct = () => {
           <option>Rose</option>
           <option>Vanilla</option>
           <option>White Choclate</option>
+        </select>
+      </div>
+
+      <div className="form-group my-2">
+        <select
+          onChange={handleChange("cakeCategory")}
+          className="form-control"
+          placeholder="Cake Category"
+        >
+          <option>Select Cake Category</option>
+
+          <option>Anniversary</option>
+          <option>Birthday</option>
+          <option>Kids</option>
+          <option>Photo</option>
+          <option>Theme</option>
         </select>
       </div>
 
