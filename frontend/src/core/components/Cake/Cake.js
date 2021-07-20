@@ -30,27 +30,83 @@ const Cake = () => {
           Shop by Category
         </h1>
         <div className="cards-list pb-4">
-          <CakeCardComponent Title="Birthday" Img={Birthday} />
-          <CakeCardComponent Title="Anniversary" Img={Anniversary} />
-          <CakeCardComponent Title="Kids" Img={Kids} />
-          <CakeCardComponent Title="Theme" Img={Theme} />
-          <CakeCardComponent Title="Photo" Img={Photo} />
+          <CakeCardComponent
+            link="/cake/category/Birthday"
+            Title="Birthday"
+            Img={Birthday}
+          />
+          <CakeCardComponent
+            link="/cake/category/Anniversary"
+            Title="Anniversary"
+            Img={Anniversary}
+          />
+          <CakeCardComponent
+            link="/cake/category/Kids"
+            Title="Kids"
+            Img={Kids}
+          />
+          <CakeCardComponent
+            link="/cake/category/Theme"
+            Title="Theme"
+            Img={Theme}
+          />
+          <CakeCardComponent
+            link="/cake/category/Photo"
+            Title="Photo"
+            Img={Photo}
+          />
         </div>
         <hr />
         <h1 data-aos="fade-zoom-in" className="heading">
           Shop by Flavor
         </h1>
         <div className="cards-list pb-4">
-          <CakeCardComponent Title="Black Forest" Img={BlackForest} />
-          <CakeCardComponent Title="Blue Berry" Img={BlueBerry} />
-          <CakeCardComponent Title="Choclate" Img={Choclate} />
-          <CakeCardComponent Title="Butterscotch" Img={Butterscotch} />
-          <CakeCardComponent Title="Mix Fruit" Img={MixFruit} />
-          <CakeCardComponent Title="Pineapple" Img={Pineapple} />
-          <CakeCardComponent Title="Redvelvet" Img={Redvelvet} />
-          <CakeCardComponent Title="White Choclate" Img={WhiteChoclate} />
-          <CakeCardComponent Title="Vanilla" Img={Vanilla} />
-          <CakeCardComponent Title="Rose" Img={Rose} />
+          <CakeCardComponent
+            link="/cake/Black Forest"
+            Title="Black Forest"
+            Img={BlackForest}
+          />
+          <CakeCardComponent
+            link="/cake/Blue Berry"
+            Title="Blue Berry"
+            Img={BlueBerry}
+          />
+          <CakeCardComponent
+            link="/cake/Choclate"
+            Title="Choclate"
+            Img={Choclate}
+          />
+          <CakeCardComponent
+            link="/cake/Butterscotch"
+            Title="Butterscotch"
+            Img={Butterscotch}
+          />
+          <CakeCardComponent
+            link="/cake/Mix Fruit"
+            Title="Mix Fruit"
+            Img={MixFruit}
+          />
+          <CakeCardComponent
+            link="/cake/Pineapple"
+            Title="Pineapple"
+            Img={Pineapple}
+          />
+          <CakeCardComponent
+            link="/cake/Red Velvet"
+            Title="Red Velvet"
+            Img={Redvelvet}
+          />
+          <CakeCardComponent
+            link="/cake/White Choclate"
+            Title="White Choclate"
+            Img={WhiteChoclate}
+          />
+          <CakeCardComponent
+            link="/cake/Vanilla"
+            Title="Vanilla"
+            Img={Vanilla}
+          />
+          <CakeCardComponent link="/cake/Rose" Title="Rose" Img={Rose} />
         </div>
       </CakeContainer>
     </>

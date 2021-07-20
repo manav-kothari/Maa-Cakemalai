@@ -6,7 +6,7 @@ export const FooterContainer = styled.footer`
 `;
 
 export const FooterWrap = styled.div`
-  padding: 16px 24px;
+  padding: 15px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,16 +42,47 @@ export const SocialLogo = styled(Link)`
   align-items: center;
   margin-bottom: 16px;
   font-weight: bold;
+  @media screen and (max-width: 820px) {
+    margin-bottom: 9px;
+  }
 `;
 
 export const SocialIcons = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 240px;
+  width: 180px;
+  @media screen and (max-width: 820px) {
+    width: 150px;
+  }
 `;
 
 export const SocialIconLink = styled.a`
   color: #fff;
   font-size: 24px;
+`;
+
+export const CreditMobile = styled.a`
+  display: none;
+  @media screen and (max-width: 820px) {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 15px;
+    padding-bottom: 2px;
+  }
+`;
+
+export const CreditLaptop = styled.a`
+  display: none;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 17px;
+  padding-bottom: 2px;
+  @media screen and (max-width: 820px) {
+    display: none;
+  }
 `;

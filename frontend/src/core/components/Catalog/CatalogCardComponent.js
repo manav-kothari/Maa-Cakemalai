@@ -9,11 +9,11 @@ const CatalogCardComponent = ({ link = "", Title = "Title", Img = "" }) => {
   }, []);
   return (
     <Link to={link}>
-      <div data-aos="fade-up" class="card1">
-        <div class="card_image">
+      <div data-aos="fade-up" className="card1">
+        <div className="card_image">
           <img aria-hidden src={Img} alt="catalog image" />
         </div>
-        <div class="card_title title-white">
+        <div className="card_title title-white">
           <p>{Title}</p>
         </div>
       </div>

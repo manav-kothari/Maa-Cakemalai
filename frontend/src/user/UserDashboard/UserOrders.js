@@ -22,7 +22,7 @@ const UserOrders = ({ match }) => {
       if (data.error) {
         setError(data.error);
       } else {
-        setOrders(data.orders);
+        setOrders(data.order);
         console.log(data);
 
         setPage(data.page);
@@ -113,7 +113,6 @@ const UserOrders = ({ match }) => {
                     <td>{order.createdAt}</td>
                     <td>{order._id}</td>
                     <td>{order.transaction_id}</td>
-                    <td>{order.user._id}</td>
                   </tr>
                 ))}
               </tbody>

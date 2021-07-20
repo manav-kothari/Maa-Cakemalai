@@ -21,15 +21,43 @@ const Catalog = () => {
       <h1 data-aos="fade-zoom-in" className="heading">
         Catalog
       </h1>
-      <div class="cards-list">
+      <div className="cards-list">
         <CatalogCardComponent link="/cake" Title="Cake" Img={Cake} />
-        <CatalogCardComponent link="/store/filter/Cookies" Title="Cookies" Img={Cookies} />
-        <CatalogCardComponent link="/store/filter/Puff" Title="Puff" Img={Puff} />
-        <CatalogCardComponent link="/store/filter/Khaari" Title="Khaari" Img={Khaari} />
-        <CatalogCardComponent link="/store/filter/Toast" Title="Toast" Img={Toast} />
-        <CatalogCardComponent link="/store/filter/Cream Roll" Title="Cream Roll" Img={CreamRoll} />
-        <CatalogCardComponent link="/store/filter/Sweet" Title="Sweet" Img={Sweet} />
-        <CatalogCardComponent link="/store/filter/Bread" Title="Bread" Img={Bread} />
+        <CatalogCardComponent
+          link="/store/filter/Cookies"
+          Title="Cookies"
+          Img={Cookies}
+        />
+        <CatalogCardComponent
+          link="/store/filter/Puff"
+          Title="Puff"
+          Img={Puff}
+        />
+        <CatalogCardComponent
+          link="/store/filter/Khaari"
+          Title="Khaari"
+          Img={Khaari}
+        />
+        <CatalogCardComponent
+          link="/store/filter/Toast"
+          Title="Toast"
+          Img={Toast}
+        />
+        <CatalogCardComponent
+          link="/store/filter/Cream Roll"
+          Title="Cream Roll"
+          Img={CreamRoll}
+        />
+        <CatalogCardComponent
+          link="/store/filter/Sweet"
+          Title="Sweet"
+          Img={Sweet}
+        />
+        <CatalogCardComponent
+          link="/store/filter/Bread"
+          Title="Bread"
+          Img={Bread}
+        />
       </div>
     </CatalogContainer>
   );

@@ -138,7 +138,6 @@ exports.updateProduct = (req, res) => {
 exports.getAllProducts = asyncHandler(async (req, res) => {
   let sortBy = req.query.sortBy ? req.query.sortBy : "createdAt";
   let sortByOrder = req.query.sortByOrder ? req.query.sortByOrder : "-1";
-  // const categoryName = req.query.categoryName ? req.query.categoryName : "";
   const page = Number(req.query.pageNumber) || 1;
   const pageSize = 15;
 
@@ -151,7 +150,19 @@ exports.getAllProducts = asyncHandler(async (req, res) => {
       }
     : { path: "" };
 
-  Product.find({})
+  const cakeCategory = req.query.cakeCategory
+    ? {
+        cakeCategory: req.query.cakeCategory,
+      }
+    : {};
+
+  const cakeFlavor = req.query.cakeFlavor
+    ? {
+        flavor: req.query.cakeFlavor,
+      }
+    : {};
+
+  Product.find({ ...cakeCategory, ...cakeFlavor })
     .select("-photo")
     .populate({ ...populatecategory })
     .sort([[sortBy, sortByOrder]])
@@ -181,47 +192,6 @@ exports.getAllProducts = asyncHandler(async (req, res) => {
         pages: Math.ceil(count / pageSize),
       });
     });
-});
-
-exports.getCakeByCategory = asyncHandler(async (req, res) => {
-  let sortBy = req.query.sortBy ? req.query.sortBy : "createdAt";
-  let sortByOrder = req.query.sortByOrder ? req.query.sortByOrder : "-1";
-  // const categoryName = req.query.categoryName ? req.query.categoryName : "";
-  const page = Number(req.query.pageNumber) || 1;
-  const pageSize = 15;
-
-  const populatecakeCategory = req.query.cakeCategoryName
-    ? {
-        path: "cakeCategory",
-        match: {
-          name: "Birthday",
-        },
-      }
-    : { path: "" };
-
-  Product.find({ cakeCategory: "Birthday" })
-    .select("-photo")
-    // .populate({ ...populatecakeCategory })
-    .sort([[sortBy, sortByOrder]])
-    // .limit(pageSize)
-    // .skip(pageSize * (page - 1))
-    // .aggregate([
-    //   { $match: { }, // replace here with the name you want
-    // ])
-    .exec(err, products, (page = Number(req.query.pageNumber) || 1), pages);
-
-  if (err) {
-    return res.status(400).json({
-      error: "NO Product FOUND!",
-    });
-  }
-  count = products.length;
-
-  res.json({
-    products: products.slice(pageSize * (page - 1), pageSize * page),
-    page,
-    pages: Math.ceil(count / pageSize),
-  });
 });
 
 exports.getAllUniqueCategories = (req, res) => {

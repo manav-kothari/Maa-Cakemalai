@@ -4,6 +4,7 @@ import Home from "./core/Home";
 import { Catalog, Contact, Navbar, Footer } from "./core/components";
 import Signin from "./user/Signin/Signin";
 import Signup from "./user/Signup";
+import Reset from "./user/Reset";
 import ScrollToTop from "./core/components/ScrollToTop";
 import Cake from "./core/components/Cake/Cake";
 import AdminRoute from "./auth/helper/AdminRoutes";
@@ -54,6 +55,7 @@ const Routes = () => {
         <Route path="/" exact component={Home} />
         <Route path="/signin" exact component={Signin} />
         <Route path="/signup" exact component={Signup} />
+        <Route path="/resetpassword" exact component={Reset} />
         <Route path="/shop" exact component={Catalog} />
         <Route path="/store" exact component={Store} />
         <Route path="/store/page/:pageNumber" exact component={Store} />
@@ -91,6 +93,8 @@ const Routes = () => {
         <Route path="/contact" exact component={Contact} />
         <Route path="/product/:productId" exact component={Product} />
         <Route path="/cake" exact component={Cake} />
+        <Route path="/cake/category/:cakeCategory" exact component={Store} />
+        <Route path="/cake/:cakeFlavor" exact component={Store} />
         <Route path="/myprofile" exact component={UserDashboard} />
         <PrivateRoute path="/myprofile/orders" exact component={UserOrders} />
         <PrivateRoute

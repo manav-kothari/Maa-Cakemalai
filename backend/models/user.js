@@ -29,6 +29,8 @@ var userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    resetToken: String,
+    expireToken: Date,
     salt: String,
     role: {
       type: Number,

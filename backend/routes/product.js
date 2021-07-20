@@ -54,7 +54,6 @@ router.put(
 
 //listing route
 router.get("/products", getAllProducts);
-router.get("/cakebycategory", getCakeByCategory);
 
 router.get("/products/categories", getAllUniqueCategories);
 router.get("/products/flavors", getAllUniqueFlavors);

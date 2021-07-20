@@ -8,6 +8,8 @@ import {
   SocialLogo,
   SocialIcons,
   SocialIconLink,
+  CreditMobile,
+  CreditLaptop,
 } from "./FooterElements";
 
 const Footer = () => {
@@ -17,20 +19,37 @@ const Footer = () => {
         <SocialMedia>
           <SocialMediaWrap>
             <SocialLogo to="/">Maa CakeMalai</SocialLogo>
+            <CreditLaptop
+              href="https://manavkothari.netlify.app/"
+              target="_blank"
+            >
+              Developed by Manav Kothari
+            </CreditLaptop>
             <SocialIcons>
-              <SocialIconLink href="/" target="_blank" aria-label="Facebook">
+              <SocialIconLink
+                href="https://www.facebook.com/MAA-Cakemalai-THE-Bakeology-and-Cafe-2366097216815427"
+                target="_blank"
+                aria-label="Facebook"
+              >
                 <FaFacebook />
               </SocialIconLink>
-              <SocialIconLink href="/" target="_blank" aria-label="Facebook">
+              <SocialIconLink href="/" target="_blank" aria-label="WhatsApp">
                 <FaWhatsapp />
               </SocialIconLink>
-              <SocialIconLink href="/" target="_blank" aria-label="Instagram">
+              <SocialIconLink
+                href="https://www.instagram.com/maa_cakemalai/"
+                target="_blank"
+                aria-label="Instagram"
+              >
                 <FaInstagram />
               </SocialIconLink>
             </SocialIcons>
           </SocialMediaWrap>
         </SocialMedia>
       </FooterWrap>
+      <CreditMobile href="https://manavkothari.netlify.app/" target="_blank">
+        Developed by Manav Kothari
+      </CreditMobile>
     </FooterContainer>
   );
 };

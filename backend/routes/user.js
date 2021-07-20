@@ -6,6 +6,7 @@ const {
   getUser,
   updateUser,
   userPurchaseList,
+  resetPassword,
 } = require("../controllers/user");
 const { isSignedIn, isAuthenticated, isAdmin } = require("../controllers/auth");
 
@@ -20,5 +21,6 @@ router.get(
   isAuthenticated,
   userPurchaseList
 );
+router.post("/reset-password", resetPassword);
 
 module.exports = router;

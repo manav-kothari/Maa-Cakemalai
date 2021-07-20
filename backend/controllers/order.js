@@ -22,39 +22,24 @@ exports.getOrder = (req, res) => {
 exports.getOrdersOfUser = asyncHandler(async (req, res) => {
   const page = Number(req.query.pageNumber) || 1;
   const pageSize = 15;
-
-  const populateorders = req.query.userId
-    ? {
-        path: "user",
-        match: {
-          _id: req.query.userId,
-        },
-      }
-    : { path: "" };
-
-  Order.find({})
-    .populate({ ...populateorders })
-    .sort([["createdAt", "-1"]])
-
+  Order.find({ user: { _id: req.profile._id } })
+    .sort([["_id", "-1"]])
+    .populate("user", "_id name")
     .exec(function (
       err,
-      orders,
+      order,
       page = Number(req.query.pageNumber) || 1,
       pages
     ) {
-      orders = orders.filter(function (order) {
-        return order._id;
-      });
-
       if (err) {
         return res.status(400).json({
-          error: "NO Orders FOUND!",
+          error: "No orders found in DB",
         });
       }
-      count = orders.length;
+      count = order.length;
 
       res.json({
-        orders: orders.slice(pageSize * (page - 1), pageSize * page),
+        order: order.slice(pageSize * (page - 1), pageSize * page),
         page,
         pages: Math.ceil(count / pageSize),
       });
@@ -92,6 +77,7 @@ exports.getAllOrders = (req, res) => {
         });
       }
       count = order.length;
+
       res.json({
         order: order.slice(pageSize * (page - 1), pageSize * page),
         page,

@@ -26,7 +26,7 @@ const Product = ({ match }) => {
   useEffect(() => {
     setLoading(true);
     loadProduct(productId);
-  }, []);
+  }, [productId]);
   const errorMessage = () => {
     return (
       <div className="row">

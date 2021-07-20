@@ -87,6 +87,7 @@ const AllOrders = ({ match }) => {
                   <th>Product(s)</th>
                   <th>Instruction</th>
                   <th>Branch</th>
+                  <th>Cuomer's Number</th>
                   <th>Timestamp</th>
                   <th>Order ID</th>
                   <th>Transaction ID</th>
@@ -112,7 +113,8 @@ const AllOrders = ({ match }) => {
                     </td>
                     <td>{order.instruction}</td>
                     <td>{order.branch}</td>
-                    <td>{order.createdAt}</td>
+                    <td>{order.number}</td>
+                    <td>{order.timestamp}</td>
                     <td>{order._id}</td>
                     <td>{order.transaction_id}</td>
                     <td>{order.user._id}</td>

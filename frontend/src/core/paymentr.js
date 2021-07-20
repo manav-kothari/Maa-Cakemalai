@@ -21,9 +21,11 @@ function loadScript(src) {
 
 const Paymentr = ({ products, setReload = (f) => f, reload = undefined }) => {
   const userId = isAuthenticated() && isAuthenticated().user._id;
+  const useremail = isAuthenticated() && isAuthenticated().user.email;
   const token = isAuthenticated() && isAuthenticated().token;
   const [instruction, setInstruction] = useState("");
   const [branch, setBranch] = useState("");
+  const [number, setNumber] = useState("");
   // eslint-disable-next-line
   const [info, setInfo] = useState({
     loading: false,
@@ -79,13 +81,13 @@ const Paymentr = ({ products, setReload = (f) => f, reload = undefined }) => {
       handler: function (response) {
         alert("Payment Successful! We have received your order.");
 
-        console.log("PAYMENT SUCCESS");
         const orderData = {
           products: products,
           transaction_id: data.id,
           amount: data.amount,
           instruction: instruction,
           branch: branch,
+          number: number,
         };
         createOrder(userId, token, orderData);
         cartEmpty(() => {
@@ -93,6 +95,10 @@ const Paymentr = ({ products, setReload = (f) => f, reload = undefined }) => {
         });
 
         setReload(!reload);
+      },
+      prefill: {
+        contact: `+91${number}`,
+        email: useremail,
       },
     };
     const paymentObject = new window.Razorpay(options);
@@ -106,32 +112,46 @@ const Paymentr = ({ products, setReload = (f) => f, reload = undefined }) => {
     setBranch(event.target.value);
   };
 
+  const handlechangeNumber = (event) => {
+    setNumber(event.target.value);
+  };
   return (
     <div>
       {products.length > 0 ? (
         <>
           <form className="p-1">
-            <div className="form-group">
-              <span className="h4 text-center">
-                Want to give any instructions:
-              </span>
-              <textarea
-                type="text"
+            <span className="h4 text-center">Enter your details:</span>
+            <div className="my-2 ">
+              <input
+                type="number"
                 className=" form-control my-2  p-2 "
-                onChange={handlechange}
-                value={instruction}
-                placeholder="Write Instructions or message on cake"
+                onChange={handlechangeNumber}
+                value={number}
+                placeholder="Enter Mobile Number"
               />
             </div>
             <div className="form-group my-2">
-              <select onChange={handlechangeBranch} className="form-control">
-                <option>Select Branch</option>
+              <select
+                onChange={handlechangeBranch}
+                className="form-control"
+                placeholder="Select Branch"
+              >
+                <option disabled selected>
+                  Select Branch
+                </option>
 
                 <option value="Dhamtari">Dhamtari</option>
                 <option value="Rudri">Rudri</option>
                 <option value="Kurud">Kurud</option>
               </select>
             </div>
+            <textarea
+              type="text"
+              className=" form-control my-2  p-2 "
+              onChange={handlechange}
+              value={instruction}
+              placeholder="Want to give any instructions or message on cake"
+            />
           </form>
           <h3 className="my-1 p-2">
             Your bill is <strong>₹{getAmount()}</strong>{" "}

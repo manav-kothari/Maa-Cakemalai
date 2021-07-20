@@ -18,7 +18,7 @@ const Cards = ({
   // const [count, setCount] = useState(product.count);
 
   const addToCart = () => {
-    addItemToCart(product, () => toast.info("Product added to cart!"));
+    addItemToCart(product, () => toast.info(`${product.name} added to cart!`));
   };
 
   // const getARedirect = (redirect) => {

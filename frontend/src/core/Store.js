@@ -16,13 +16,15 @@ export default function Store({ match }) {
   const [categories, setCategories] = useState([]);
 
   const categoryName = match.params.categoryName;
+  const cakeCategory = match.params.cakeCategory;
+  const cakeFlavor = match.params.cakeFlavor;
   const sortBy = match.params.sortBy;
   const sortByOrder = match.params.sortByOrder;
   const pageNumber = match.params.pageNumber || 1;
 
   const preloadCategories = () => {
     getCategories().then((data) => {
-      console.log(data);
+      console.log(cakeCategory);
       if (data.error) {
         setCategories(data.error);
       } else {
@@ -31,8 +33,22 @@ export default function Store({ match }) {
     });
   };
 
-  const loadAllProduct = (pageNumber, categoryName, sortBy, sortByOrder) => {
-    getProducts(pageNumber, categoryName, sortBy, sortByOrder).then((data) => {
+  const loadAllProduct = (
+    pageNumber,
+    categoryName,
+    sortBy,
+    sortByOrder,
+    cakeFlavor,
+    cakeCategory
+  ) => {
+    getProducts(
+      pageNumber,
+      categoryName,
+      sortBy,
+      sortByOrder,
+      cakeFlavor,
+      cakeCategory
+    ).then((data) => {
       if (data.error) {
         setError(data.error);
       } else {
@@ -46,9 +62,17 @@ export default function Store({ match }) {
 
   useEffect(() => {
     setLoading(true);
-    loadAllProduct(pageNumber, categoryName, sortBy, sortByOrder);
+    loadAllProduct(
+      pageNumber,
+      categoryName,
+      sortBy,
+      sortByOrder,
+      cakeCategory,
+      cakeFlavor
+    );
     preloadCategories();
-  }, [pageNumber, categoryName, sortBy, sortByOrder]);
+    // eslint-disable-next-line
+  }, [pageNumber, categoryName, sortBy, sortByOrder, cakeFlavor, cakeCategory]);
 
   const errorMessage = () => {
     return (
