@@ -181,7 +181,7 @@ const Paymentr = ({ products, setReload = (f) => f, reload = undefined }) => {
           )}
         </>
       ) : (
-        <div className="page">
+        <div className="cartpage">
           <h5 className="mt-4">
             If you have already placed an order, then{" "}
             <a href={`/myprofile/orders`} className="btn btn-info p-1 my-1">

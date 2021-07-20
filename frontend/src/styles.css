@@ -293,11 +293,15 @@ a:active {
 
 .page {
   background-color: #f8f8f8;
-  height: 90vh;
+  height: 100vh;
 }
 
 .page2 {
   background-color: #f8f8f8;
+}
+.cartpage {
+  background-color: #f8f8f8;
+  height: 49vh;
 }
 .cards {
   border-radius: 4px;

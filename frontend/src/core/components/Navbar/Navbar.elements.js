@@ -94,7 +94,9 @@ export const NavMenu = styled.div`
     left: ${({ click }) => (click ? 0 : "-100%")};
     opacity: 1;
     transition: all 0.5s ease;
-    backdrop-filter: blur(70px) saturate(50%) contrast(10%);
+    background-color: #000;
+
+    /* backdrop-filter: blur(70px) saturate(50%) contrast(10%); */
   }
 `;
 
