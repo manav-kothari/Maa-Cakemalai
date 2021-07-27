@@ -110,7 +110,7 @@ const UserOrders = ({ match }) => {
                     <td>₹{order.amount / 100}</td>
                     <td>{order.instruction}</td>
                     <td>{order.branch}</td>
-                    <td>{order.createdAt}</td>
+                    <td>{order.timestamp}</td>
                     <td>{order._id}</td>
                     <td>{order.transaction_id}</td>
                   </tr>
